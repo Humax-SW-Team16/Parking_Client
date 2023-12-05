@@ -1,6 +1,5 @@
 name: CI/CD Docker
 
-# 트리거를 수행할 브랜치를 지정합니다.
 on:
   push:
     branches: [ main ]
@@ -22,6 +21,9 @@ jobs:
   build:
     name: Build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
       # github repository에서 checkout
       - uses: actions/checkout@v2
@@ -66,4 +68,4 @@ jobs:
       - name: Docker run
         run: |
           docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest
-          docker run -d -p 80:3000 --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest
+          docker run -d -p 4000:4000 --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest
