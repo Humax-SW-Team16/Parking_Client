@@ -13,8 +13,9 @@ env:
   NAME: go_cicd
 
 permissions:
+  contents: read
   packages: write
-  
+
 jobs:
   # 빌드 Job
   build:
