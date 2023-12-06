@@ -6,8 +6,7 @@ on:
 
 # 환경설정
 env:
-#  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/nextjs-docker
-  DOCKER_IMAGE: ghcr.io/morallife/nextjs-docker
+  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/nextjs-docker
   VERSION: ${{ github.sha }}
   NAME: go_cicd
 
