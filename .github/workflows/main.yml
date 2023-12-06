@@ -6,7 +6,8 @@ on:
 
 # 환경설정
 env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/nextjs-docker
+#  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/nextjs-docker
+  DOCKER_IMAGE: ghcr.io/Humax-SW-Team16/nextjs-docker
   VERSION: ${{ github.sha }}
   NAME: go_cicd
 
