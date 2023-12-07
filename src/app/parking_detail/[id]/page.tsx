@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 
 export default async function Page({ params }: { params: { id: string } }) {
     const address =
-        "http://localhost:8080/api/v1/parking/read/detail/" + params.id;
+        "http://3.34.236.224:3000/api/v1/parking/read/detail/" + params.id;
     const cookieStore = cookies()
     const auth = cookieStore.get('Authorization')
     //console.log(auth?.value)
