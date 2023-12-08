@@ -4,7 +4,7 @@ function addressModify(address: string): string {
     return words.join(" ")
 }
 function addressFullName(add: string): string {
-    const names = {
+    const names: { [key:string]: string[]} = {
         "대전광역시": ["대전", "대전시", "대전직할시"],
         "서울특별시": ["서울", "서울시", "Seoul"],
         "인천광역시": ["인천", "인천시", "Incheon", "ICN"],
