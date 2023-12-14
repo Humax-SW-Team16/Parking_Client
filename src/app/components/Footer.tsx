@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
     return (
-        <div className="h-96 bg-gray-100">
+        <div className="h-[23rem] bg-gray-100">
             <div className="flex flex-row h-20 pt-9 items-center justify-center">
                 <div className="basis-1/2">
                     <img src="/hiparking.svg" className="h-6"/>

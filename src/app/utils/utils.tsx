@@ -1,9 +1,12 @@
 function addressModify(address: string): string {
-    var words = address.split(' ')
-    words[0] = addressFullName(words[0])
-    return words.join(" ")
+    if (address == '') { return ''}
+    else {
+        var words = (address||'').split(' ');
+        words[0] = addressFullName(words[0])
+        return words.join(" ")
+    }
 }
-function addressFullName(add: string): string {
+function addressFullName(address: string): string {
     const names: { [key:string]: string[]} = {
         "대전광역시": ["대전", "대전시", "대전직할시"],
         "서울특별시": ["서울", "서울시", "Seoul"],
@@ -22,11 +25,11 @@ function addressFullName(add: string): string {
         "경상남도": ["경남"]
     }
     for (var city in names) {
-        if (names[city].includes(add)) {
+        if (names[city].includes(address)) {
             return city
         }
     }
-    return add
+    return address
 }
 
 export default addressModify
