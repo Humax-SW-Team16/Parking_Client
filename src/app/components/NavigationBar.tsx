@@ -1,7 +1,13 @@
 import Link from "next/link";
 //import "../globals.css";
 import Image from "next/image";
+import { cookies } from "next/headers"
 export default function NavigationBar() {
+    const cookiesList = cookies()
+    const isLogin = cookiesList.has('Authorization')
+    console.log("cookiesList",cookiesList)
+    console.log("isLogin",isLogin)
+
     return (
         <nav className="bg-white border-gray-200 dark:bg-gray-900">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -53,7 +59,7 @@ export default function NavigationBar() {
                                 href="/login"
                                 className="block p-2 py-2 px-2 text-orange-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                             >
-                                로그인
+                                { isLogin ? <p>로그아웃</p> : <p>로그인</p>}
                             </a>
                         </li>
                     </ul>

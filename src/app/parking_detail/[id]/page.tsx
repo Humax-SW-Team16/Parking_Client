@@ -8,6 +8,8 @@ export default async function Page({ params }: { params: { id: string } }) {
     const auth = cookieStore.get('Authorization')
     //console.log(auth?.value)
     const CookieValue = 'Authorization=' + auth?.value +'; Path=/;'
+    // const str = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJpYXQiOjE3MDI2MTM2OTcsImV4cCI6MTcwMjYyMDg5N30.4hlyP4S5mJA91flfWvAVI4SPhFDS0Ep_3zDoM3P4xNY"
+    // const CookieValue = 'Authorization=' + str;
     const res = await fetch(address, {
         method: "GET",
         headers: {
@@ -16,7 +18,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     });
     const data = await res.json();
 
-    //console.log("ID DATA#############################\n",data)
+    console.log("ID DATA#############################\n",data)
     return (
         <div className="bg-white h-screen">
             <div className="mx-auto grid max-w-2xl grid-cols-1 items-stretch gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
@@ -46,37 +48,37 @@ export default async function Page({ params }: { params: { id: string } }) {
                     <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                         {data.name}
                     </h2>
+                    <div className="mt-2 text-red-500 flex">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        </svg>
+                        <div className="text-gray-600 ml-2">{data.searchCount}</div>
+                    </div>
                     <div className="mt-4 text-gray-500 line-clamp-3">
                         <p className="font-bold text-xl text-black">주소</p>
                         {addressModify(data.address)}
                     </div>
 
-                    <dl className="mt-9 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
-                        {/*{features.map((feature) => (*/}
-                        {/*    <div key={feature.name} className="border-t border-gray-200 pt-4">*/}
-                        {/*        <dt className="font-medium text-gray-900">{feature.name}</dt>*/}
-                        {/*        <dd className="mt-2 text-sm text-gray-500">{feature.description}</dd>*/}
-                        {/*    </div>*/}
-                        {/*))}*/}
-                        <div className="border-t border-gray-200 pt-4 text-xl">
+                    <dl className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-1 sm:gap-y-5 lg:gap-x-8">
+                        <div className="pt-4 text-xl">
                             <dt className="font-bold text-gray-900">운영시간</dt>
                             <dt className="mt-2 text-sm text-gray-500">
                                 {data.operatingTime}
                             </dt>
                         </div>
-                        <div className="border-t border-gray-200 pt-4 text-xl">
+                        <div className="text-xl">
                             <dt className="font-bold text-gray-900">기본 이용요금</dt>
-                            <dt className="mt-2 text-sm text-gray-500">{data.timeTicket}</dt>
+                            <dt className="text-sm text-gray-500">{data.timeTicket}</dt>
                         </div>
-                        <div className="border-t border-gray-200 pt-4 text-xl">
+                        <div className="text-xl">
                             <dt className="font-bold text-gray-900">종일권 요금</dt>
-                            <dt className="mt-2 text-sm text-gray-500">
+                            <dt className="text-sm text-gray-500">
                                 {data.dayTicket} 원
                             </dt>
                         </div>
-                        <div className="border-t border-gray-200 pt-4 text-xl">
+                        <div className="text-xl">
                             <dt className="font-bold text-gray-900">행사기간 종일권 요금</dt>
-                            <dt className="mt-2 text-sm text-gray-500">
+                            <dt className="text-sm text-gray-500">
                                 {data.specialDay} 원
                             </dt>
                         </div>
