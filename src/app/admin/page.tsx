@@ -1,9 +1,9 @@
 "use client";
 import AdminCard from "./AdminCard";
 export default function Admin() {
-  const clickHandler = (btnNum) => {
-    console.log(btnNum);
-  };
+  // const clickHandler = (btnNum) => {
+  //   console.log(btnNum);
+  // };
   return (
     <>
       <div className="text-5xl px-6 pt-6">Admin Page</div>
@@ -14,27 +14,27 @@ export default function Admin() {
             <AdminCard
               image="/yu.jpeg"
               text="주차장 모든 정보 조회하기"
-              onClick={() => clickHandler("btn1")}
+              // onClick={() => clickHandler("btn1")}
             />
             <AdminCard
               image="/ha.jpg"
               text="주차장 세부 정보 조회하기"
-              onClick={() => clickHandler("btn2")}
+              // onClick={() => clickHandler("btn2")}
             />
             <AdminCard
               image="/ye.jpeg"
               text="주차장 정보 추가하기"
-              onClick={() => clickHandler("btn3")}
+              // onClick={() => clickHandler("btn3")}
             />
             <AdminCard
               image="/ji.JPG"
               text="주차장 정보 수정하기"
-              onClick={() => clickHandler("btn4")}
+              // onClick={() => clickHandler("btn4")}
             />
             <AdminCard
               image="/min.jpeg"
               text="주차장 정보 삭제하기"
-              onClick={() => clickHandler("btn5")}
+              // onClick={() => clickHandler("btn5")}
             />
           </div>
         </div>
