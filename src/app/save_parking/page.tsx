@@ -1,6 +1,5 @@
 import SaveCarousel from "./SaveCarousel";
 import SaveParking from "./SaveParking";
-import SavePagination from "./SavePagination";
 export default function Save_Parking() {
   return (
     <div className="">
