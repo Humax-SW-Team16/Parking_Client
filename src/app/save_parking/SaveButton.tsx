@@ -46,29 +46,3 @@ const SaveButton: React.FC<SaveButtonProps> = ({
 };
 
 export default SaveButton;
-// const handleSaveClick = async (): Promise<void> => {
-//   try {
-//     const address: string = `https://www.turu-parking.com/api/v1/user/add?parkingId=${parkingId}`;
-//     const res: Response = await fetch(address, {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//         Cookie:
-//           "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjciLCJpYXQiOjE3MDI1NDEyOTMsImV4cCI6MTcwMjU0ODQ5M30.fBRgc2iNqNoGEgMpXobYEA10PVZzDBL4dwHiL3sKSH4; Path=/;",
-//       },
-//       body: JSON.stringify(requestData),
-//     });
-
-//     if (!res.ok) {
-//       throw new Error(`HTTP error! Status: ${res.status}`);
-//     }
-
-//     const data: Parking_Info[] = await res.json();
-//     setParkingData(data);
-//     console.log(parkingData, "post해서 받아온 값");
-//   } catch (error) {
-//     console.error("Error fetching data:", error);
-//     setParkingData([]);
-//   }
-//   console.log(requestData, "body에 넣는 data");
-// };
