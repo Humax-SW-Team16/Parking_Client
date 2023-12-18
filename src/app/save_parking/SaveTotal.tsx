@@ -1,7 +1,8 @@
 import { IoMdHeart } from "react-icons/io";
-const SaveTotal = ({ color, className }) => {
-  const iconStyle = {
-    color: color, // 여기서 컬러를 props로 받은 값으로 설정
+import { SaveTotalProps } from "../types";
+const SaveTotal: React.FC<SaveTotalProps> = ({ color, className }) => {
+  const iconStyle: React.CSSProperties = {
+    color: color,
     backgroundColor: "transparent",
   };
 

@@ -52,11 +52,11 @@ export default function SaveParking() {
               </figure>
 
               <div className="card-body relative">
-                {/*<SaveButton*/}
-                {/*  size="32px"*/}
-                {/*  color="#333"*/}
-                {/*  className="absolute top-2 right-2"*/}
-                {/*/>*/}
+                {/* <SaveButton
+                  size="32px"
+                  className="absolute top-2 right-2"
+                  onClick={() => handleSaveButtonClick(el.parkingId)} // Pass the onClick handler
+                /> */}
                 <div className="card-title">{el.name}</div>
                 <div>
                   <span className="font-semibold">주소: </span>

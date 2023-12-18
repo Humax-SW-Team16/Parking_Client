@@ -1,6 +1,6 @@
 "use client";
 import Script from "next/script";
-import { Map, ZoomControl } from "react-kakao-maps-sdk";
+import { Map } from "react-kakao-maps-sdk";
 import useGeolocation from "../customhook/useGeoLocation";
 import { useLocationContext } from "../context/userLocationContext";
 import { useRef, useState, useEffect } from "react";
