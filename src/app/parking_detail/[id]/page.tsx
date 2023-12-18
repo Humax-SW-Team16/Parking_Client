@@ -5,7 +5,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     const address =
         "http://3.34.236.224:3000/api/v1/parking/read/detail/" + params.id;
     const cookieStore = cookies()
-    const auth = cookieStore.get('Authorization')
+    const auth = cookieStore.get('ACCESS_TOKEN')
     //console.log(auth?.value)
     const CookieValue = 'Authorization=' + auth?.value +'; Path=/;'
     // const str = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJpYXQiOjE3MDI2MTM2OTcsImV4cCI6MTcwMjYyMDg5N30.4hlyP4S5mJA91flfWvAVI4SPhFDS0Ep_3zDoM3P4xNY"
@@ -49,8 +49,8 @@ export default async function Page({ params }: { params: { id: string } }) {
                         {data.name}
                     </h2>
                     <div className="mt-2 text-red-500 flex">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="red" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                            <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                         </svg>
                         <div className="text-gray-600 ml-2">{data.searchCount}</div>
                     </div>

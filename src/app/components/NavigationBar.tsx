@@ -4,7 +4,7 @@ import Image from "next/image";
 import { cookies } from "next/headers"
 export default function NavigationBar() {
     const cookiesList = cookies()
-    const isLogin = cookiesList.has('Authorization')
+    const isLogin = cookiesList.has('ACCESS_TOKEN')
     console.log("cookiesList",cookiesList)
     console.log("isLogin",isLogin)
 

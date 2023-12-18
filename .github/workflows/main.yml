@@ -66,5 +66,6 @@ jobs:
       # 3000 -> 80 포트로 수행하도록 지정
       - name: Docker run
         run: |
+          rm -rf ${{ runner.workspace }}/your-cache-directory &&
           docker stop ${{ env.NAME }} && docker rm ${{ env.NAME }} && docker rmi ${{ env.DOCKER_IMAGE }}:latest
           docker run -d -p 4000:4000 --name ${{ env.NAME }} --restart always ${{ env.DOCKER_IMAGE }}:latest

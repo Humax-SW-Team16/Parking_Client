@@ -1,18 +1,24 @@
 import Image from "next/image";
-
-
 import { cookies } from "next/headers";
 import {Cookie} from "next/dist/compiled/@next/font/dist/google";
+import {redirect} from "next/navigation";
 
-export default function Login() {
+async function LogOut() {
+    "use server"
+    cookies().delete('ACCESS_TOKEN')
+    redirect('/')
+}
+export default async function Login() {
+    const cookiesList = cookies()
+    const isLogin = cookiesList.has('ACCESS_TOKEN')
 
-    //const KAKAO_REST_API_KEY = process.env.KAKAO_CLIENT_ID;
-    // const KAKAO_REST_API_KEY = '7143269287ea765a59a8b51f8758cf2e';
+    if (isLogin) {
+        LogOut()
+    }
+
     const KAKAO_REST_API_KEY = '9f5309f7fc6b371a2a96d9cfdbd304cd';
 
-    //const KAKAO_REDIRECT_URI = "https://www.turu-parking.com/kakao/login";
-    const KAKAO_REDIRECT_URI = "http://localhost:3000/oauth/kakao/login";
-    //const KAKAO_REDIRECT_URI = "http://localhost:3000/login/kakao";
+    const KAKAO_REDIRECT_URI = "http://3.34.236.224:3000/oauth/kakao/login";
     const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${KAKAO_REDIRECT_URI}&response_type=code`;
 
     return (
