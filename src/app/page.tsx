@@ -6,7 +6,7 @@ export default function Home() {
         <>
             <div className="snap-y snap-mandatory h-screen w-screen overflow-auto">
                 <div className="snap-start w-screen h-screen flex items-center justify-center text-5xl">
-                    {/*<Carousel />*/}
+                    <Carousel />
                 </div>
                 <div className="snap-start bg-white w-screen h-screen">
                     <div className="flex flex-wrap justify-center items-center">
@@ -15,7 +15,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="snap-start bg-amber-400 w-screen h-screen flex items-center justify-center text-5xl">
-                    {/*<InOut/>*/}
+                    <InOut/>
                 </div>
                 <div className="snap-start bg-amber-500 w-screen h-screen flex items-center justify-center text-5xl">4</div>
                 <div className="snap-start bg-amber-600 w-screen h-screen flex items-center justify-center text-5xl">5</div>
