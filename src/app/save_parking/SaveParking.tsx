@@ -1,4 +1,5 @@
 "use client";
+import Cookies from "js-cookie";
 import Link from "next/link";
 import { StaticMap } from "react-kakao-maps-sdk";
 import SaveButton from "../save_parking/SaveButton";
@@ -6,16 +7,27 @@ import { useState, useEffect } from "react";
 import { Parking_Info } from "../types";
 export default function SaveParking() {
   const [saveData, setSaveData] = useState<Parking_Info[]>([]);
+  const handleSaveButtonClick = (parkingId: string) => {
+    // if (isSaved) {
+    //   console.log("찜 기능 추가 fetch");
+    // } else {
+    //   console.log("찜 기능 해제 fetch");
+    // }
+  };
   useEffect(() => {
     const fetchData = async () => {
+      const headers: { [key: string]: string } = {
+        "Content-Type": "application/json",
+      };
+      const auth = Cookies.get("ACCESS_TOKEN");
+      if (auth) {
+        headers["Authorization"] = auth;
+      }
       try {
         const address = "http://3.34.236.224:3000/api/v1/user/bookmark/list";
         const res = await fetch(address, {
           method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjciLCJpYXQiOjE3MDI2ODM5MDcsImV4cCI6MTcwMjY5MTEwN30.Uq3OzUFPpb2kcchQYDJyMegFHcm4V-FKIWnKDpmpIRE`,
-          },
+          headers: headers,
         });
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -52,11 +64,13 @@ export default function SaveParking() {
               </figure>
 
               <div className="card-body relative">
-                {/* <SaveButton
+                <SaveButton
                   size="32px"
                   className="absolute top-2 right-2"
-                  onClick={() => handleSaveButtonClick(el.parkingId)} // Pass the onClick handler
-                /> */}
+                  onClick={() => handleSaveButtonClick(el.parkingId)}
+                  parkingId={el.parkingId}
+                  bookStatus={el.bookStatus}
+                />
                 <div className="card-title">{el.name}</div>
                 <div>
                   <span className="font-semibold">주소: </span>
