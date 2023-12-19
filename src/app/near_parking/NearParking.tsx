@@ -118,6 +118,7 @@ export default function NearParking(): JSX.Element {
                     className="absolute top-2 right-2"
                     onClick={() => handleSaveButtonClick(el.parkingId)}
                     parkingId={el.parkingId}
+                    bookStatus={el.bookStatus}
                   />
                   <div className="card-title">{el.name}</div>
                   <div>
