@@ -288,7 +288,6 @@ const Carousel = async () => {
 
     return (
         <>
-
             <div className="">
                 <div className="mx-32 font-semibold text-gray-600">오늘의 인기 주차장입니다 🚘</div>
                 <div className="grid grid-rows-1 grid-flow-col w-screen overflow-x-scroll snap-x">
