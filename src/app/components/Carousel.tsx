@@ -27,14 +27,14 @@ interface parkingData {
 const Carousel = async () => {
     const address =
         "http://3.34.236.224:3000/";
-    const cookieStore = cookies()
-    const auth = cookieStore.get('ACCESS_TOKEN')
-    const CookieValue = 'Authorization=' + auth?.value +'; Path=/;'
+    // const cookieStore = cookies()
+    // const auth = cookieStore.get('ACCESS_TOKEN')
+    // const CookieValue = 'Authorization=' + auth?.value +'; Path=/;'
     const res = await fetch(address, {
         method: "GET",
-        headers: {
-            Cookie:CookieValue,
-        },
+        // headers: {
+        //     Cookie:CookieValue,
+        // },
     });
     const data = await res.json();
     //console.log(Object.keys(data))
