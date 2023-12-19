@@ -8,8 +8,7 @@ export default async function Page({ params }: { params: { id: string } }) {
     const auth = cookieStore.get('ACCESS_TOKEN')
     //console.log(auth?.value)
     const CookieValue = 'Authorization=' + auth?.value +'; Path=/;'
-    // const str = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6IjIiLCJpYXQiOjE3MDI2MTM2OTcsImV4cCI6MTcwMjYyMDg5N30.4hlyP4S5mJA91flfWvAVI4SPhFDS0Ep_3zDoM3P4xNY"
-    // const CookieValue = 'Authorization=' + str;
+
     const res = await fetch(address, {
         method: "GET",
         headers: {

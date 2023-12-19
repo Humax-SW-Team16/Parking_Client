@@ -1,6 +1,41 @@
+"use client"
 import Image from "next/image";
 
+import {cookies} from "next/headers";
+import {useEffect, useState} from "react";
 export default function InOut() {
+    const [data, setData] = useState();
+    const address =
+        "http://3.34.236.224:3000/api/v1/user/read/list";
+    function get_cookie(){
+        var value = document.cookie.match('(^|;) ?'+"ACCESS_TOKEN"+'=([^;]*)(;|$)');
+        return value? value[2] : null;
+    }
+    const auth = get_cookie();
+    const CookieValue = 'Authorization=' + auth+'; Path=/;'
+
+    console.log(address)
+    useEffect(() => {
+        fetch(address, { method : "GET", headers: { Cookie: CookieValue } }).then((response) => {
+            response.json().then((data) => {
+                setData(data);
+            });
+        });
+    }, []);
+
+    console.log(data)
+    // const res =  fetch(address, {
+    //     method: "GET",
+    //     headers: {
+    //         Cookie:CookieValue,
+    //     },
+    // });
+    // const data =  res.json();
+    // console.log(Object.keys(data))
+    // // console.log(data['0'])
+    // const arr = Array(data)[0]
+    // console.log("###################################")
+    // console.log(arr[234])
     return (
         <div className="flex flex-col w-2/3">
             <div className="flex items-center justify-center text-4xl font-semibold mb-12 text-gray-800">예상 주차요금을 계산해 볼 수 있습니다</div>
