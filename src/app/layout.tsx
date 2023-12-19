@@ -4,31 +4,33 @@ import { UserLocationProvider } from "./context/userLocationContext";
 import "./globals.css";
 import NavigationBar from "@/app/components/NavigationBar";
 import Footer from "@/app/components/Footer";
-import {Suspense} from "react";
-import Loading from "@/app/loading";
-
+import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
-  title: "Humax Parking App",
-  description: "humax parking app by Team 16",
+    title: "Humax Parking App",
+    description: "humax parking app by Team 16",
 };
 
 export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
+                                       children,
+                                   }: {
+    children: React.ReactNode;
 }) {
-  return (
-    <UserLocationProvider>
-        <html lang="en">
-          <body className={inter.className}>
+    return (
+        <UserLocationProvider>
+            <html lang="en">
+            <Head>
+                <meta
+                    httpEquiv="Content-Security-Policy"
+                    content="upgrade-insecure-requests"
+                />
+            </Head>
+            <body className={inter.className}>
             <NavigationBar />
-              <Suspense fallback={<Loading/>}>
-                {children}
-              </Suspense>
+            {children}
             <Footer />
-          </body>
-        </html>
-    </UserLocationProvider>
-  );
+            </body>
+            </html>
+        </UserLocationProvider>
+    );
 }
