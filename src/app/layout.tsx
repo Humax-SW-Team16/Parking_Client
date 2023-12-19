@@ -1,11 +1,15 @@
-import Head from "next/head";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { UserLocationProvider } from "./context/userLocationContext";
 import "./globals.css";
 import NavigationBar from "@/app/components/NavigationBar";
 import Footer from "@/app/components/Footer";
-
+import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
+export const metadata: Metadata = {
+  title: "Humax Parking App",
+  description: "humax parking app by Team 16",
+};
 
 export default function RootLayout({
   children,
@@ -14,19 +18,19 @@ export default function RootLayout({
 }) {
   return (
     <UserLocationProvider>
-      <div>
+      <html lang="en">
         <Head>
-          <title>Humax Parking App</title>
-          <meta name="description" content="humax parking app by Team 16" />
           <meta
-            http-equiv="Content-Security-Policy"
+            httpEquiv="Content-Security-Policy"
             content="upgrade-insecure-requests"
           />
         </Head>
-        <NavigationBar />
-        {children}
-        <Footer />
-      </div>
+        <body className={inter.className}>
+          <NavigationBar />
+          {children}
+          <Footer />
+        </body>
+      </html>
     </UserLocationProvider>
   );
 }
