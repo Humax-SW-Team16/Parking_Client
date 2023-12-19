@@ -1,5 +1,6 @@
 "use client";
 import Cookies from "js-cookie";
+import { useState, useEffect } from "react";
 import { IoHeartOutline } from "react-icons/io5";
 import { GoHeartFill } from "react-icons/go";
 
@@ -18,6 +19,11 @@ const SaveButton: React.FC<SaveButtonProps> = ({
   parkingId,
   bookStatus,
 }) => {
+  const [isBooked, setIsBooked] = useState<boolean>(bookStatus === "booked");
+  useEffect(() => {
+    setIsBooked(bookStatus === "booked");
+  }, [bookStatus]);
+
   const fetchData = async () => {
     const requestData = {
       parkingId: parkingId,
