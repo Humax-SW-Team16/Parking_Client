@@ -47,7 +47,7 @@ const Carousel = async () => {
                 <div className="grid grid-rows-1 grid-flow-col w-screen overflow-x-scroll snap-x">
                     {arr.map((item: parkingData) => (
                         <a key={item.parkingId} href={"/parking_detail/"+item.parkingId}>
-                            <div key={item.parkingId} className="snap-center w-[32rem] h-96 p-10 m-12 bg-slate-100 text-xl rounded-2xl shadow-xl">
+                            <div key={item.parkingId} className="scroll-ml-28 snap-start w-[32rem] h-96 p-10 m-12 bg-slate-100 text-xl rounded-2xl shadow-xl">
                                 <div className="flex justify-between items-center font-bold text-3xl">
                                     <div className="">{item.name}</div>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">

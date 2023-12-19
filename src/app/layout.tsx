@@ -20,15 +20,15 @@ export default function RootLayout({
 }) {
   return (
     <UserLocationProvider>
-      <Suspense fallback={<Loading/>}>
         <html lang="en">
           <body className={inter.className}>
             <NavigationBar />
-              {children}
+              <Suspense fallback={<Loading/>}>
+                {children}
+              </Suspense>
             <Footer />
           </body>
         </html>
-      </Suspense>
     </UserLocationProvider>
   );
 }

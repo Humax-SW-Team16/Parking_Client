@@ -7,8 +7,10 @@ export default function InOut() {
     const address =
         "http://3.34.236.224:3000/api/v1/user/read/list";
     function get_cookie(){
-        var value = document.cookie.match('(^|;) ?'+"ACCESS_TOKEN"+'=([^;]*)(;|$)');
-        return value? value[2] : null;
+        if (typeof document !== "undefined") {
+            var value = document.cookie.match('(^|;) ?'+"ACCESS_TOKEN"+'=([^;]*)(;|$)');
+            return value? value[2] : null;
+        }
     }
     const auth = get_cookie();
     const CookieValue = 'Authorization=' + auth+'; Path=/;'
