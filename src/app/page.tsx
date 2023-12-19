@@ -1,9 +1,5 @@
-import Image from 'next/image'
-import Footer from "@/app/components/Footer";
 import Carousel from "@/app/components/Carousel";
 import InOut from "@/app/components/InOut";
-import {Suspense} from "react";
-import Loading from "@/app/loading";
 //import Carousel from "@/app/components/Carousel";
 export default function Home() {
     return (
@@ -19,7 +15,7 @@ export default function Home() {
                     </div>
                 </div>
                 <div className="snap-start bg-amber-400 w-screen h-screen flex items-center justify-center text-5xl">
-                    <InOut/>
+                    {/*<InOut/>*/}
                 </div>
                 <div className="snap-start bg-amber-500 w-screen h-screen flex items-center justify-center text-5xl">4</div>
                 <div className="snap-start bg-amber-600 w-screen h-screen flex items-center justify-center text-5xl">5</div>

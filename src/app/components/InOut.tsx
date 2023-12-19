@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image";
-
 import {cookies} from "next/headers";
 import {useEffect, useState} from "react";
 export default function InOut() {
