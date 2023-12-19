@@ -6,7 +6,7 @@ export default function Home() {
         <>
             <div className="snap-y snap-mandatory h-screen w-screen overflow-auto">
                 <div className="snap-start w-screen h-screen flex items-center justify-center text-5xl">
-                    {/*<Carousel />*/}
+                    <Carousel />
                 </div>
                 <div className="snap-start w-screen h-screen bg-[url('/parkingArea.png')] bg-contain backdrop-opacity-90">
                     <div className="flex flex-wrap h-screen justify-start items-center backdrop-brightness-50 backdrop-blur-[2px]">
