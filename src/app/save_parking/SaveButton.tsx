@@ -1,34 +1,69 @@
 "use client";
-import { useState } from "react";
+import Cookies from "js-cookie";
+import { useState, useEffect } from "react";
 import { IoHeartOutline } from "react-icons/io5";
 import { GoHeartFill } from "react-icons/go";
+
 interface SaveButtonProps {
   onClick: () => void;
   size: string;
   className?: string;
   parkingId: string;
+  bookStatus: string;
 }
+
 const SaveButton: React.FC<SaveButtonProps> = ({
   size,
   className,
   onClick,
   parkingId,
+  bookStatus,
 }) => {
-  const [isSaved, setIsSaved] = useState(false);
-  const handleClick = () => {
-    setIsSaved((prevState) => !prevState);
-    onClick(); // 부모 컴포넌트로 전달된 클릭 이벤트 핸들러 호출
-    console.log(onClick());
-    if (isSaved) {
-      console.log("찜 기능 해제 fetch", parkingId);
-    } else {
-      console.log("찜 기능 추가 fetch", parkingId);
+  const [isBooked, setIsBooked] = useState<boolean>(bookStatus === "booked");
+  useEffect(() => {
+    setIsBooked(bookStatus === "booked");
+  }, [bookStatus]);
+
+  const fetchData = async () => {
+    const requestData = {
+      parkingId: parkingId,
+    };
+    const auth = Cookies.get("ACCESS_TOKEN");
+    const headers: { [key: string]: string } = {
+      "Content-Type": "application/json",
+    };
+    if (auth) {
+      headers["Authorization"] = auth;
     }
+    console.log("bookStatus", bookStatus, "parkingId", parkingId);
+    try {
+      const address: string = bookStatus
+        ? `http://3.34.236.224:3000/api/v1/user/remove`
+        : `http://3.34.236.224:3000/api/v1/user/add`;
+
+      const res: Response = await fetch(address, {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(requestData),
+      });
+
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      onClick();
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      // Implement error handling, such as displaying an error message to the user
+    }
+  };
+
+  const handleClick = () => {
+    fetchData();
   };
 
   return (
     <>
-      {isSaved ? (
+      {bookStatus ? (
         <GoHeartFill
           onClick={handleClick}
           style={{ fontSize: size, color: "#fc6c00" }}

@@ -1,7 +1,7 @@
 export default function SaveCarousel() {
   return (
     <>
-      <div className="carousel w-2/3 h-[26rem]">
+      <div className="carousel w-2/3 h-[28rem]">
         <div id="slide1" className="carousel-item relative w-full">
           <img
             src="https://turuparking.com/wp-content/uploads/2023/06/turuparking-11.png"
