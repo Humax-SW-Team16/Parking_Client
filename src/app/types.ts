@@ -13,6 +13,7 @@ export interface Parking_Info {
   dayTicket: string;
   lat: string;
   lon: string;
+  bookStatus: string;
 }
 export interface Coordinates {
   lat: number;
