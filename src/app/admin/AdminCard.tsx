@@ -1,20 +1,20 @@
 "use client";
 import Image from "next/image";
-import { useEffect } from "react";
 interface AdminCardProps {
   image: string;
   text: string;
+  onClick: () => void;
 }
-const AdminCard: React.FC<AdminCardProps> = ({ image, text }) => {
+const AdminCard: React.FC<AdminCardProps> = ({ image, text, onClick }) => {
   return (
     <>
-      <div className="card bg-base-100 shadow-xl">
+      <div className="card bg-base-100 shadow-xl mb-20">
         <figure>
           <Image
             src={image}
             width={500}
             height={500}
-            className="h-[34rem]"
+            className="h-[32rem]"
             alt="Turu Logo"
           />
         </figure>
@@ -24,6 +24,7 @@ const AdminCard: React.FC<AdminCardProps> = ({ image, text }) => {
             <label
               htmlFor="my-drawer-4"
               className="drawer-button btn bg-main-orange text-white"
+              onClick={onClick}
             >
               GO
             </label>
