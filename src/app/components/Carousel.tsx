@@ -26,7 +26,7 @@ interface parkingData {
 }
 const Carousel = async () => {
     const address =
-        "https://3.34.236.224:3000/";
+        "https://www.turu-parking.com/api";
     //const cookieStore = cookies()
     // const auth = cookieStore.get('ACCESS_TOKEN')
     // const CookieValue = 'Authorization=' + auth?.value +'; Path=/;'
