@@ -96,10 +96,17 @@ export default function Home() {
     const [liOver, setLiOver] = useState(false);
     const [result, setResult] = useState("");
     const [search, setSearch] = useState("");
+    const [isCaculated, setIsCaculated] = useState(false);
 
     const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         const { value } = e.currentTarget;
         setSearch(value);
+        const inputHTML = document.getElementById('parkingName') as HTMLInputElement;
+        const inputValue = inputHTML.value
+        // console.log("input", inputValue)
+        if (inputValue == ""){
+            setIsCaculated(false)
+        }
     };
     const onFocusIn: FocusEventHandler<HTMLInputElement> = (e) => {
         setIsHidden(false);
@@ -119,13 +126,13 @@ export default function Home() {
     };
     const onAddResultClick: MouseEventHandler<HTMLDivElement> = (e) => {
         const { textContent } = e.currentTarget.querySelector('#name') as HTMLDivElement;
-        setResult(textContent as string);
         setIsHidden(true);
         setSearch(textContent as string);
     };
     function calcCost(){
         const inTime = document.getElementById('inTime') as HTMLInputElement;
         const outTime = document.getElementById('outTime') as HTMLInputElement;
+        const parkingName = document.getElementById('parkingName') as HTMLInputElement;
 
         const inDate = new Date(inTime.value)
         const outDate = new Date(outTime.value)
@@ -133,15 +140,23 @@ export default function Home() {
         const timeDiff = outDate.getTime() - inDate.getTime()
         const hoursDiff = timeDiff / (1000 * 60 * 60);
 
+        const cost = 3000 * hoursDiff
         console.log(hoursDiff)
+        setResult(cost.toString() as string)
+        setIsCaculated(true)
     }
     return (
         <div className="flex flex-col items-center justify-start w-screen h-screen">
-            <div className="w-2/3 ml-20 mt-36 text-3xl font-semibold text-slate-800">예상요금을 계산해볼 수 있습니다</div>
+            <div className="flex justify-between w-2/3 ml-20 mt-36 text-3xl font-semibold text-slate-800">예상요금을 계산해볼 수 있습니다
+                <div hidden={!isCaculated} className="text-4xl font-medium text-white">
+                    예상가격 : {result} 원
+                </div>
+            </div>
             <div aria-disabled={!isHidden} aria-checked={isHidden} className="flex items-center justify-between shadow-xl mt-10 w-2/3 bg-white h-36 divide-x-2 rounded-t-[3rem] aria-checked:rounded-full aria-disabled:border-b-2">
                 <div className="flex flex-col bg-white ml-12 w-1/3">
                     <label className="text-xl font-bold py-3">주차장</label>
                     <input
+                        id="parkingName"
                         placeholder="주차장 이름 혹은 주소"
                         type={"search"}
                         onFocus={onFocusIn}

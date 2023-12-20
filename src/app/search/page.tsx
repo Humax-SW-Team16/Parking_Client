@@ -92,8 +92,8 @@ export default function Home() {
                 <div className="text-orange-500 font-bold">투루파킹</div>
                 <div className="font-medium">검색</div>
             </div>
-            <div aria-disabled={!isHidden} aria-checked={isHidden} className="flex items-center justify-between shadow-xl mt-10 w-2/3 bg-white h-36 divide-x-2 rounded-t-[3rem] aria-checked:rounded-full aria-disabled:border-b-2">
-                <div className="flex flex-col bg-white ml-12 w-1/3">
+            <div aria-disabled={!isHidden} aria-checked={isHidden} className="flex  items-center justify-between shadow-xl mt-10 w-2/3 bg-white h-36 divide-x-2 rounded-t-[3rem] aria-checked:rounded-full aria-disabled:border-b-2">
+                <div className="flex flex-col bg-white ml-12 w-full">
                     <input
                         placeholder="주차장 이름 혹은 주소"
                         type={"search"}
@@ -101,10 +101,10 @@ export default function Home() {
                         onBlur={onFocusOut}
                         onChange={onChange}
                         value={search}
-                        className="outline-0 text-2xl py-2"
+                        className="outline-0 text-2xl py-2 "
                     />
                 </div>
-                <button onClick={calcCost} className="flex items-center justify-center bg-orange-400 w-[6rem] h-[6rem] rounded-full m-6 ">
+                <button onClick={calcCost} className="flex items-center justify-center bg-orange-400 w-[9rem] h-[7rem] rounded-full m-6 ">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="h-[4rem] w-[4rem] text-white">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
