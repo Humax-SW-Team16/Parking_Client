@@ -1,5 +1,3 @@
-import {cookies} from "next/headers";
-
 interface parkingData {
     parkingId: string,
     name: string,
@@ -27,23 +25,21 @@ interface parkingData {
 const Carousel = async () => {
     const address =
         "https://www.turu-parking.com/api";
-    //const cookieStore = cookies()
-    // const auth = cookieStore.get('ACCESS_TOKEN')
-    // const CookieValue = 'Authorization=' + auth?.value +'; Path=/;'
     const res = await fetch(address, {
         method: "GET",
         headers: {
         },
     });
     const data = await res.json();
-    //console.log(Object.keys(data))
-    // console.log(data['0'])
+
     const arr = Array(data)[0]
 
     return (
         <>
             <div className="">
-                <div className="mx-32 font-semibold text-gray-600 dark:text-slate-50">오늘의 인기 주차장입니다 🚘</div>
+                <div className="mx-32 font-semibold text-gray-600 dark:text-slate-50">
+                    오늘의 인기 주차장입니다 🚘
+                </div>
                 <div className="grid grid-rows-1 grid-flow-col w-screen overflow-x-scroll snap-x">
                     {arr.map((item: parkingData) => (
                         <a key={item.parkingId} href={"/parking_detail/"+item.parkingId}>
@@ -54,7 +50,7 @@ const Carousel = async () => {
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
                                     </svg>
                                 </div>
-                                <div className="flex mt-5 text-gray-700 font-medium items-center text-blue-900">
+                                <div className="flex mt-5 text-gray-700 font-medium items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
@@ -72,7 +68,6 @@ const Carousel = async () => {
                     ))}
                 </div>
             </div>
-
         </>
     );
 };

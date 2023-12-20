@@ -5,7 +5,7 @@
 |                               [이유정](https://github.com/FordangIT)                                |                                [이민하](https://github.com/moral-life)                               
 |:-----------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------:|
 |                                       fordang0819@gmail.com                                        |                                      leeminam32@gmail.com                                       |                              
-|  ![박지호](https://github.com/CYJhub/CYJhub/assets/81136546/42b12c5b-8f9e-4580-984a-fba1ab9ee743)  |  <img src="https://gist.github.com/assets/28076019/5e544695-1ec6-447a-a795-e40cc01b069c" width="420" height="380" /> 
+|  ![박지호](https://github.com/CYJhub/CYJhub/assets/81136546/42b12c5b-8f9e-4580-984a-fba1ab9ee743)  |  <img src="https://gist.github.com/assets/28076019/5e544695-1ec6-447a-a795-e40cc01b069c" width="420" height="420" /> 
 
 
 ## 📍개요
