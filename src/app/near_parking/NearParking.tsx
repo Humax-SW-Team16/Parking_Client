@@ -65,13 +65,7 @@ export default function NearParking(): JSX.Element {
     }
     console.log(requestData, "body에 넣는 data");
   };
-  const handleSaveButtonClick = (parkingId: string) => {
-    // if (isSaved) {
-    //   console.log("찜 기능 추가 fetch");
-    // } else {
-    //   console.log("찜 기능 해제 fetch");
-    // }
-  };
+  const handleSaveButtonClick = (parkingId: string) => {};
   return (
     <div className="flex flex-col w-full lg:flex-col">
       <div className="">검색설정</div>
