@@ -196,14 +196,14 @@ export default function Home() {
             </div>
             <div aria-checked={!isHidden} className="mt-0 max-h-[28rem] w-2/3 overflow-scroll snap-y rounded-b-[2rem] shadow-xl">
                 <div hidden={isHidden} className="bg-white mt-0">
-                    {customArray.map((fruit, idx) => (
+                    {customArray.map((parkingData, idx) => (
                         <div
                             key={idx}
                             onMouseOver={onMouseOver}
                             onMouseLeave={onMouseLeave}
                             onClick={onAddResultClick}
                             style={{ cursor: "pointer" }}
-                            hidden={(!fruit.name.includes(search)) && (!fruit.address.includes(search))}
+                            hidden={(!parkingData.name.includes(search)) && (!parkingData.address.includes(search))}
                             className="text-lg bg-white pl-8 py-4 snap-start"
                         >
                             <div className="flex items-center">
@@ -212,9 +212,9 @@ export default function Home() {
                                 </svg>
                                 <div className="pl-4">
                                     <div id="name" className="text-lg font-bold">
-                                        <span>{fruit.name}</span>
+                                        <span>{parkingData.name}</span>
                                     </div>
-                                    <div className="text-lg font-medium text-gray-500">{fruit.address}</div>
+                                    <div className="text-lg font-medium text-gray-500">{parkingData.address}</div>
                                 </div>
                             </div>
 
