@@ -1,6 +1,5 @@
 "use client";
 import Cookies from "js-cookie";
-import { useState, useEffect } from "react";
 import { IoHeartOutline } from "react-icons/io5";
 import { GoHeartFill } from "react-icons/go";
 
@@ -19,11 +18,6 @@ const SaveButton: React.FC<SaveButtonProps> = ({
   parkingId,
   bookStatus,
 }) => {
-  const [isBooked, setIsBooked] = useState<boolean>(bookStatus === "booked");
-  useEffect(() => {
-    setIsBooked(bookStatus === "booked");
-  }, [bookStatus]);
-
   const fetchData = async () => {
     const requestData = {
       parkingId: parkingId,
@@ -35,7 +29,6 @@ const SaveButton: React.FC<SaveButtonProps> = ({
     if (auth) {
       headers["Authorization"] = auth;
     }
-    console.log("bookStatus", bookStatus, "parkingId", parkingId);
     try {
       const address: string = bookStatus
         ? `http://3.34.236.224:3000/api/v1/user/remove`
@@ -59,6 +52,7 @@ const SaveButton: React.FC<SaveButtonProps> = ({
 
   const handleClick = () => {
     fetchData();
+    window.location.reload();
   };
 
   return (
