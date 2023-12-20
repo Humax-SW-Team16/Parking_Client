@@ -18,7 +18,7 @@ export default function SaveParking() {
         headers["Authorization"] = auth;
       }
       try {
-        const address = "http://3.34.236.224:3000/api/v1/user/bookmark/list";
+        const address = "https://www.turu-parking.com/api/v1/user/bookmark/list";
         const res = await fetch(address, {
           method: "GET",
           headers: headers,

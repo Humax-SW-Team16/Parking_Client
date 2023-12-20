@@ -31,8 +31,8 @@ const SaveButton: React.FC<SaveButtonProps> = ({
     }
     try {
       const address: string = bookStatus
-        ? `http://3.34.236.224:3000/api/v1/user/remove`
-        : `http://3.34.236.224:3000/api/v1/user/add`;
+        ? `https://www.turu-parking.com/api/v1/user/remove`
+        : `https://www.turu-parking.com/api/v1/user/add`;
 
       const res: Response = await fetch(address, {
         method: "POST",

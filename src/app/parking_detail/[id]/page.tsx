@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import addressModify from "@/app/utils/utils";
 export default async function Page({ params }: { params: { id: string } }) {
     const address =
-        "http://3.34.236.224:3000/api/v1/parking/read/detail/" + params.id;
+        "https://www.turu-parking.com/api/v1/parking/read/detail/" + params.id;
     const cookieStore = cookies()
     const auth = cookieStore.get('ACCESS_TOKEN')
     //console.log(auth?.value)

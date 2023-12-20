@@ -45,7 +45,7 @@ export default function NearParking(): JSX.Element {
       lon: lng,
     };
     try {
-      const address: string = "http://3.34.236.224:3000/api/v1/user/search";
+      const address: string = "https://www.turu-parking.com/api/v1/user/search";
       const res: Response = await fetch(address, {
         method: "POST",
         headers: headers,

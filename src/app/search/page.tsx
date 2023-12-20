@@ -14,7 +14,7 @@ import type {
 export default function Home() {
     const [data, setData] = useState();
     const address =
-        "http://3.34.236.224:3000/api/v1/user/read/list";
+        "https://www.turu-parking.com/api/v1/user/read/list";
     function get_cookie(){
         if (typeof document !== "undefined") {
             var value = document.cookie.match('(^|;) ?'+"ACCESS_TOKEN"+'=([^;]*)(;|$)');
