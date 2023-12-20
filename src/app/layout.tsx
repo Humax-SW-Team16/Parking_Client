@@ -19,15 +19,11 @@ export default function RootLayout({
     return (
         <UserLocationProvider>
             <html lang="en">
-                <meta
-                    httpEquiv="Content-Security-Policy"
-                    content="upgrade-insecure-requests"
-                />
-            <body className={inter.className}>
-            <NavigationBar />
-            {children}
-            <Footer />
-            </body>
+                <body className={inter.className}>
+                    <NavigationBar />
+                        {children}
+                    <Footer />
+                </body>
             </html>
         </UserLocationProvider>
     );
