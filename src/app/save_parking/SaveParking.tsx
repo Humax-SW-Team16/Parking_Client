@@ -7,13 +7,7 @@ import { useState, useEffect } from "react";
 import { Parking_Info } from "../types";
 export default function SaveParking() {
   const [saveData, setSaveData] = useState<Parking_Info[]>([]);
-  const handleSaveButtonClick = (parkingId: string) => {
-    // if (isSaved) {
-    //   console.log("찜 기능 추가 fetch");
-    // } else {
-    //   console.log("찜 기능 해제 fetch");
-    // }
-  };
+  const handleSaveButtonClick = (parkingId: string) => {};
   useEffect(() => {
     const fetchData = async () => {
       const headers: { [key: string]: string } = {
