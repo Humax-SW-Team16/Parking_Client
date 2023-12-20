@@ -48,7 +48,6 @@ export default function SaveParking() {
                 <StaticMap
                   center={{ lat: Number(el.lat), lng: Number(el.lon) }}
                   style={{
-                    // 지도의 크기
                     width: "100%",
                     height: "200px",
                   }}
