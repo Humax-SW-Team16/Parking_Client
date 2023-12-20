@@ -46,7 +46,6 @@ const SaveButton: React.FC<SaveButtonProps> = ({
       onClick();
     } catch (error) {
       console.error("Error fetching data:", error);
-      // Implement error handling, such as displaying an error message to the user
     }
   };
 
